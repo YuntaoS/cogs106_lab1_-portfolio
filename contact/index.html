@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – Your Name</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Home</a> |
+    <a href="../projects/index.html">Projects</a> |
+    <a href="../contact/index.html">Contact</a> |
+    <a href="https://github.com/YuntaoS" target="_blank">GitHub</a>
+  </nav>
+
+  <h1>Contact Me</h1>
+  <p>If you would like to reach out, please fill out the form below. When you click “Send”, your email app will open with your message ready to send.</p>
+
+  <form action="mailto:joshan@ucsd.edu" method="POST" enctype="text/plain">
+    <label>
+      Your Email:
+      <input type="email" name="email" required>
+    </label>
+    <br><br>
+
+    <label>
+      Subject:
+      <input name="subject">
+    </label>
+    <br><br>
+
+    <label>
+      Message:
+      <textarea name="body" rows="5" cols="40"></textarea>
+    </label>
+    <br><br>
+
+    <button>Send</button>
+  </form>
+</body>
+</html>
