@@ -4,14 +4,94 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume – Yuntao Shan</title>
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ===== 全局 ===== */
+    html {
+      --color-accent: oklch(65% 50% 0);
+      accent-color: var(--color-accent);
+    }
+    *,*::before,*::after{box-sizing:border-box;}
+    body {
+      font: 100%/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      max-width: 100ch;
+      margin-inline: auto;
+      padding-inline: 1rem;
+    }
+    img { max-width:100%; height:auto; display:block; }
+
+    @media (max-width: 360px) {
+      body { padding-inline: 1.25rem; }
+    }
+
+    /* ===== 导航栏 ===== */
+    nav {
+      display: flex;
+      border-bottom: 1px solid oklch(80% 3% 200);
+      margin-block-end: 1rem;
+    }
+    nav a {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      padding: 0.5em 0.75em;
+      border-bottom: 0.2em solid transparent;
+      transition: background-color .15s ease, border-color .15s ease;
+    }
+    nav a.current {
+      border-bottom-width: 0.4em;
+      border-bottom-color: oklch(80% 3% 200);
+      padding-bottom: calc(0.5em - 0.2em);
+    }
+    nav a:hover {
+      border-bottom: 0.4em solid var(--color-accent);
+      background-color: oklch(from var(--color-accent) 95% 5% h);
+    }
+    @media (max-width: 480px) {
+      nav { flex-wrap: wrap; }
+      nav a { flex: 1 1 50%; }
+    }
+
+    /* ===== Resume 内容 ===== */
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1.1;
+      text-wrap: balance;
+      margin-block: 0.5em 0.6em;
+    }
+    h2 {
+      color: var(--color-accent);
+      border-bottom: 2px solid oklch(85% 3% 200);
+      padding-bottom: 0.2em;
+      margin-block: 1em 0.5em;
+      line-height: 1.2;
+      text-wrap: balance;
+    }
+    p, li {
+      margin-block: 0.4em;
+    }
+    section {
+      margin-block-end: 1.5rem;
+    }
+    ul {
+      padding-left: 1.2em;
+    }
+
+    /* 小修饰：加上 hover 效果让段落轻微变亮 */
+    li:hover, p:hover {
+      background: oklch(98% 2% 200);
+      transition: background-color 0.2s ease;
+    }
+  </style>
 </head>
+
 <body>
   <nav>
-    <a href="../index.html">Home</a> |
-    <a href="../projects/index.html">Projects</a> |
-    <a href="../contact/index.html">Contact</a> |
-    <a href="../resume/index.html">Resume</a> |
+    <a href="../index.html">Home</a>
+    <a href="../projects/index.html">Projects</a>
+    <a href="../contact/index.html">Contact</a>
+    <a href="index.html" class="current">Resume</a>
     <a href="https://github.com/YuntaoS" target="_blank">GitHub</a>
   </nav>
 
@@ -20,7 +100,7 @@
   <section>
     <h2>Education</h2>
     <p><strong>University of California, Santa Cruz</strong><br>
-    B.S.in Computer Science (2026) – Undergrad Dean’s Scholarship</p>
+    B.S. in Computer Science (2026) – Undergrad Dean’s Scholarship</p>
   </section>
 
   <section>
@@ -29,7 +109,7 @@
       <li><strong>Mentor – UC Santa Cruz Mentorship Program</strong><br>
         Provide academic and personal support to students and organize resources for their success. (2023 – Present)
       </li>
-      <li><strong>Intern – Hengyue International Course Center, Suzhou </strong><br>
+      <li><strong>Intern – Hengyue International Course Center, Suzhou</strong><br>
         Improved office efficiency by 30% through data organization and team collaboration. (2022)
       </li>
       <li><strong>Lab Assistant – Beihang University Innovation Institute, Hangzhou</strong><br>
@@ -53,3 +133,4 @@
   </section>
 </body>
 </html>
+

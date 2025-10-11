@@ -1,43 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact – Yuntao Shan</title>
-  <link rel="stylesheet" href="../style.css">
+
+  <style>
+    /* ===== 全局设置 ===== */
+    html {
+      --color-accent: oklch(65% 50% 0);
+      accent-color: var(--color-accent);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font: 100%/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      max-width: 100ch;
+      margin-inline: auto;
+      padding-inline: 1rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 360px) {
+      body {
+        padding-inline: 1.25rem;
+      }
+    }
+
+    /* ===== 导航栏 ===== */
+    nav {
+      display: flex;
+      border-bottom: 1px solid oklch(80% 3% 200);
+      margin-block-end: 1rem;
+    }
+
+    nav a {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      padding: 0.5em 0.75em;
+      border-bottom: 0.2em solid transparent;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    nav a.current {
+      border-bottom-width: 0.4em;
+      border-bottom-color: oklch(80% 3% 200);
+      padding-bottom: calc(0.5em - 0.2em);
+    }
+
+    nav a:hover {
+      border-bottom: 0.4em solid var(--color-accent);
+      background-color: oklch(from var(--color-accent) 95% 5% h);
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        flex-wrap: wrap;
+      }
+      nav a {
+        flex: 1 1 50%;
+      }
+    }
+
+    /* ===== Contact 表单布局 ===== */
+    input,
+    textarea,
+    button,
+    select {
+      font: inherit;
+    }
+
+    form.contact {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1em;
+      max-width: 60rem;
+      margin-block: 1.5rem;
+    }
+
+    form.contact > label {
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-column: 1 / -1;
+      align-items: start;
+      gap: 0.5em;
+    }
+
+    form.contact > label > span {
+      grid-column: 1;
+      align-self: center;
+      white-space: nowrap;
+    }
+
+    form.contact input,
+    form.contact textarea,
+    form.contact select {
+      grid-column: 2;
+      width: 100%;
+      padding: 0.6em 0.7em;
+      border: 1px solid oklch(85% 4% 200);
+      border-radius: 0.5rem;
+      background: white;
+      box-sizing: border-box;
+    }
+
+    form.contact > button[type="submit"] {
+      grid-column: 1 / -1;
+      justify-self: start;
+      padding: 0.6em 1em;
+      border-radius: 0.6rem;
+      border: 1px solid oklch(80% 3% 200);
+      background: oklch(from var(--color-accent) 95% 5% h);
+      cursor: pointer;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 4rem);
+      line-height: 1.1;
+      text-wrap: balance;
+      margin-block: 0.5em 0.6em;
+    }
+
+    p {
+      margin-block: 0.5em;
+    }
+  </style>
 </head>
+
 <body>
-    <nav>
-        <a href="../index.html">Home</a> |
-        <a href="../projects/index.html">Projects</a> |
-        <a href="../contact/index.html">Contact</a> |
-        <a href="../resume/index.html">Resume</a> |
-        <a href="https://github.com/YuntaoS" target="_blank">GitHub</a>
-      </nav>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../projects/index.html">Projects</a>
+    <a href="index.html" class="current">Contact</a>
+    <a href="../resume/index.html">Resume</a>
+    <a href="https://github.com/YuntaoS" target="_blank">GitHub</a>
+  </nav>
 
   <h1>Contact Me</h1>
-  <p>If you would like to reach out, please fill out the form below. When you click “Send”, your email app will open with your message ready to send.</p>
 
-  <form action="mailto:joshan@ucsd.edu" method="POST" enctype="text/plain">
+  <form class="contact" action="#" method="post">
     <label>
-      Your Email:
-      <input type="email" name="email" required>
+      <span>Name</span>
+      <input type="text" name="name" required />
     </label>
-    <br><br>
 
     <label>
-      Subject:
-      <input name="subject">
+      <span>Email</span>
+      <input type="email" name="email" required />
     </label>
-    <br><br>
 
     <label>
-      Message:
-      <textarea name="body" rows="5" cols="40"></textarea>
+      <span>Message</span>
+      <textarea name="message" rows="6" required></textarea>
     </label>
-    <br><br>
 
-    <button>Send</button>
+    <button type="submit">Send</button>
   </form>
 </body>
 </html>
