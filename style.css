@@ -1,7 +1,10 @@
+/* ========== 基础设置 ========== */
 html {
-  
+  color-scheme: light dark; /* 自动根据系统主题切换 */
   --color-accent: oklch(65% 50% 0);
   accent-color: var(--color-accent);
+  background-color: canvas;
+  color: canvastext;
 }
 
 *,
@@ -10,34 +13,32 @@ html {
   box-sizing: border-box;
 }
 
+/* 页面整体布局 */
 body {
-  
   font: 100%/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-
-  
   max-width: 100ch;
   margin-inline: auto;
   padding-inline: 1rem;
 }
 
-/* auto */
+/* 图片自适应 */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-
+/* 小屏优化 */
 @media (max-width: 360px) {
   body { padding-inline: 1.25rem; }
 }
 
+/* ========== 导航栏样式 ========== */
 nav {
   display: flex;
-  border-bottom: 1px solid oklch(80% 3% 200);  
-  margin-block-end: 1rem;                      
+  border-bottom: 1px solid oklch(80% 3% 200);
+  margin-block-end: 1rem;
 }
-
 
 nav a {
   flex: 1;
@@ -49,27 +50,76 @@ nav a {
   transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
+/* 当前页面高亮 */
 nav a.current {
   border-bottom-width: 0.4em;
   border-bottom-color: oklch(80% 3% 200);
   padding-bottom: calc(0.5em - 0.2em);
 }
 
+/* 悬停样式 */
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
-  background-color: oklch(from var(--color-accent) 95% 5% h);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
+/* 小屏幕下导航换行 */
 @media (max-width: 480px) {
   nav { flex-wrap: wrap; }
-  nav a { flex: 1 1 50%; }  
+  nav a { flex: 1 1 50%; }
 }
 
-
+/* ========== 文字与排版 ========== */
 h1 {
   font-size: clamp(2rem, 6vw, 4rem);
   line-height: 1.1;
   text-wrap: balance;
   margin-block: 0.5em 0.6em;
 }
-p { margin-block: 0.5em; }
+
+h2 {
+  color: var(--color-accent);
+  border-bottom: 2px solid oklch(85% 3% 200);
+  padding-bottom: 0.2em;
+  margin-block: 1em 0.5em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+p {
+  margin-block: 0.5em;
+}
+
+ul {
+  padding-left: 1.2em;
+}
+
+
+nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom-color: var(--border-color);
+}
+
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: transparent;
+  color: inherit;
+}
+
+.color-scheme select {
+  font: inherit;
+  background: transparent;
+  border: 1px solid oklch(80% 3% 200);
+  border-radius: 0.25em;
+  padding: 0.2em 0.4em;
+  color: inherit;
+}
+
+/* 悬停时轻微亮度反馈 */
+.color-scheme select:hover {
+  background-color: color-mix(in oklch, var(--color-accent), canvas 92%);
+}
