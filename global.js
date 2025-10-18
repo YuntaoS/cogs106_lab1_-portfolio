@@ -19,7 +19,7 @@ let pages = [
 const BASE_PATH =
   location.hostname === "localhost" || location.hostname === "127.0.0.1"
     ? "/" // 本地 Live Server
-    : "/portfolio/"; // ⚠️ 改成你 GitHub Pages 仓库名
+    : "/cogs106_lab1_-portfolio/"; // ⚠️ 改成你 GitHub Pages 仓库名
 
 // 创建导航栏
 let nav = document.createElement("nav");
