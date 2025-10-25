@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="../global.js" type="module"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../style.css">
   <title>Projects – Yuntao Shan</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../global.js" type="module"></script>
+  <script src="projects.js" type="module"></script>
 
   <style>
     html {
@@ -32,9 +33,6 @@
       body { padding-inline: 1.25rem; }
     }
 
-  
-
-    /* ===== Step 4：Projects 页面网格 ===== */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
@@ -54,16 +52,7 @@
       background: white;
     }
 
-    .projects > article h2 {
-      margin: 0 0 0.5rem 0;
-      line-height: 1.1;
-      text-wrap: balance;
-    }
-
     .projects > article img {
-      display: block;
-      width: 100%;
-      height: auto;
       border-radius: 0.5rem;
       margin-bottom: 0.5rem;
     }
@@ -71,81 +60,13 @@
     h1 {
       font-size: clamp(2rem, 6vw, 4rem);
       line-height: 1.1;
-      text-wrap: balance;
       margin-block: 0.5em 0.6em;
-    }
-    h2, h3, h4, h5, h6 {
-      line-height: 1.1;
-      text-wrap: balance;
     }
   </style>
 </head>
 
 <body>
-  
-  <h1>My Projects</h1>
-
-  <section class="projects">
-    <article>
-      <h2>Lorem ipsum dolor</h2>
-      <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non risus.</p>
-    </article>
-    <article>
-      <h2>Dolor sit amet</h2>
-      <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-      <p>Phasellus sit amet lacus vitae leo fermentum malesuada ac a nisl.</p>
-    </article>
-    <article>
-      <h2>Consectetur elit</h2>
-      <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-      <p>Morbi luctus, sem ac bibendum sodales, magna enim tincidunt eros.</p>
-    </article>
-    <article>
-      <h2>Aliquam viverra</h2>
-      <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-      <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.</p>
-    </article>
-    <article>
-      <h2>Donec varius nisi</h2>
-      <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-      <p>Vivamus tincidunt, nisl sed interdum fringilla, lectus nulla pulvinar arcu.</p>
-    </article>
-    <article>
-      <h2>Sed cursus magna</h2>
-      <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-      <p>Ut a elit sit amet sapien tincidunt mattis ut a elit. Mauris id dolor quis metus.</p>
-    </article>
-    <article>
-      <h2>Integer consequat</h2>
-      <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-      <p>Integer in tortor ut sapien porttitor elementum. Suspendisse faucibus velit non ligula.</p>
-    </article>
-    <article>
-      <h2>Vestibulum posuere</h2>
-      <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-      <p>Praesent nec leo nec libero tristique luctus vitae sit amet justo.</p>
-    </article>
-    <article>
-      <h2>Curabitur euismod</h2>
-      <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-      <p>Nulla facilisi. Integer luctus dui at libero vulputate, nec finibus erat tempor.</p>
-    </article>
-    <article>
-      <h2>Pellentesque habitant</h2>
-      <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-      <p>Praesent non turpis sit amet odio hendrerit tincidunt. Fusce gravida eros vitae nunc cursus.</p>
-    </article>
-    <article>
-      <h2>Morbi tristique</h2>
-      <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-      <p>Morbi tristique velit vitae quam fermentum, nec rhoncus lacus porta.</p>
-    </article>
-    <article>
-      <h2>Phasellus nec nulla</h2>
-      <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-      <p>Aenean et justo a odio tincidunt ultrices. Cras in eros id lectus tincidunt suscipit.</p>
-    </article>
-  </section>
+  <h1 class="projects-title">My Projects</h1>
+  <section class="projects"></section>
 </body>
 </html>
