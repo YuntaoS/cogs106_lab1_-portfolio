@@ -18,7 +18,7 @@ let pages = [
 const BASE_PATH =
   location.hostname === "localhost" || location.hostname === "127.0.0.1"
     ? "/" // 本地 Live Server
-    : "/cogs106_lab1_-portfolio/"; 
+    : "/cogs106_lab1_-portfolio/"; // GitHub Pages 路径
 
 // 创建导航栏
 let nav = document.createElement("nav");
@@ -102,7 +102,7 @@ export function renderProjects(projects, containerElement, headingLevel = "h2") 
   }
 
   // 清空容器
-  // containerElement.innerHTML = "";
+  containerElement.innerHTML = "";
 
   // 如果传入的不是数组，则转成数组
   const projectList = Array.isArray(projects) ? projects : [projects];
@@ -112,25 +112,33 @@ export function renderProjects(projects, containerElement, headingLevel = "h2") 
     const article = document.createElement("article");
 
     const title = project.title || "Untitled Project";
-    const image = project.image || "https://via.placeholder.com/300x200?text=No+Image";
+    const image =
+      project.image || "https://via.placeholder.com/300x200?text=No+Image";
     const description = project.description || "No description available.";
+    const year = project.year || "Unknown year"; // ✅ 新增年份
 
     if (!/^h[1-6]$/.test(headingLevel)) {
-      console.warn(`⚠️ Invalid heading level "${headingLevel}", defaulting to <h2>.`);
+      console.warn(
+        `⚠️ Invalid heading level "${headingLevel}", defaulting to <h2>.`
+      );
       headingLevel = "h2";
     }
 
+    // ✅ 将年份加在描述下方，并包在同一个 <div> 中以防布局冲突
     article.innerHTML = `
       <${headingLevel}>${title}</${headingLevel}>
       <img src="${image}" alt="${title}">
-      <p>${description}</p>
+      <div class="project-info">
+        <p>${description}</p>
+        <p class="year">(${year})</p>
+      </div>
     `;
 
     containerElement.appendChild(article);
   }
 }
 
-
+// STEP 1.5: Fetch GitHub data
 export async function fetchGitHubData(username) {
   try {
     const url = `https://api.github.com/users/${username}`;
@@ -148,3 +156,4 @@ export async function fetchGitHubData(username) {
     return null;
   }
 }
+

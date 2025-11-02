@@ -1,32 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuntao Shan: Personal site and portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yuntao Shan: Personal Site & Portfolio</title>
 
+  <!-- ===== CSS ===== -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script src="global.js" type="module"></script>
-    <script src="index.js" type="module" defer></script>
+  <!-- ===== JS ===== -->
+  <script src="global.js" type="module"></script>
+  <script src="index.js" type="module" defer></script>
+
+  <style>
+    body {
+      font: 100%/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      max-width: 80ch;
+      margin-inline: auto;
+      padding-inline: 1rem;
+    }
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      margin-block: 0.5em;
+      line-height: 1.1;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.75rem;
+      margin-block: 1em;
+    }
+    p {
+      font-size: 1.1em;
+      margin-bottom: 1.5em;
+    }
+    h2 {
+      margin-top: 2em;
+      border-bottom: 2px solid oklch(80% 0.1 200);
+      padding-bottom: 0.25em;
+    }
+
+    /* ===== Project section ===== */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+      gap: 1rem;
+      margin-block: 1.5rem;
+    }
+
+    .projects > article {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 3;
+      padding: 0.75rem;
+      border: 1px solid oklch(88% 3% 200);
+      border-radius: 0.75rem;
+      background: white;
+    }
+
+    .projects > article img {
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ===== GitHub Stats section ===== */
+    #github-section {
+      margin-block: 3em;
+      border: 1px solid oklch(88% 3% 200);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      background: white;
+    }
+
+    .github-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+    .github-stats p {
+      margin: 0.25em 0;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding-inline: 1.25rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <h1>Yuntao Shan</h1>
 
-    <h1>Yuntao Shan</h1>
-    <img src="photo.jpg" alt="My photo" width="250">
-    <p>Welcome to my personal portfolio website!</p>
+  <img src="photo.jpg" alt="Portrait of Yuntao Shan" width="250" />
 
+  <p>
+    Welcome to my personal portfolio website! Here, you can find my latest projects,
+    coding work, and GitHub activity updates.
+  </p>
 
-    <h2>Latest Projects</h2>
-    <div class="projects"></div>
+  <!-- ===== Latest Projects ===== -->
+  <h2>Latest Projects</h2>
+  <div class="projects"></div>
 
-
-    <section id="github-section">
-        <h2>My GitHub Stats</h2>
-        <div id="profile-stats" class="github-stats"></div>
-
-        </div>
-    </section>
+  <!-- ===== GitHub Section ===== -->
+  <section id="github-section">
+    <h2>My GitHub Stats</h2>
+    <div id="profile-stats" class="github-stats"></div>
+  </section>
 </body>
 </html>
+
